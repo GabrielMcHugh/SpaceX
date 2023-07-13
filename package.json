@@ -1,10 +1,12 @@
 {
-  "name": "SpaceX",
+  "name": "space-x",
   "version": "1.0.0",
   "description": "SpaceX API practice",
-  "main": "app.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,12 @@
   },
   "homepage": "https://github.com/GabrielMcHugh/SpaceX#readme",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.3.4",
+    "morgan": "^1.10.0",
     "node": "^20.3.1",
     "nodemon": "^2.0.22"
   }

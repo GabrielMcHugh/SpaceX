@@ -1,0 +1,15 @@
+html {
+  font-family: "Courier New", Courier, monospace;
+  background: rgb(252, 252, 255);
+  background: linear-gradient(
+    144deg,
+    rgba(252, 252, 255, 1) 0%,
+    rgba(213, 248, 255, 1) 100%
+  );
+  color: rgb(48, 48, 48);
+}
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: bold;
+}
