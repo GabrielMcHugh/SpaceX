@@ -1,29 +1,25 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
-const MONGO_URL = process.env.MONGO_URL
+const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.connection.once("open", () => {
-    console.log('mongodb connection ready!')
-})
+  console.log("mongodb connection ready!");
+});
 
 mongoose.connection.on("error", (err) => {
-    console.error(err)
-})
+  console.error(err);
+});
 
 async function connectMongoose() {
-    await mongoose.connect(MONGO_URL, {
-        useNewUrlParser: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-        useUnifiedTopology: true,
-    })
+  await mongoose.connect(MONGO_URL)
+
 }
 
 async function disconnectMongoose() {
-   await mongoose.disconnect()
+  await mongoose.disconnect();
 }
 
 module.exports = {
-    connectMongoose,
-    disconnectMongoose,
-}
+  connectMongoose,
+  disconnectMongoose,
+};
