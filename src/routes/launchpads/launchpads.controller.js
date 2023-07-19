@@ -1,28 +1,33 @@
-const launchpads = require("../../models/launchpads.model")
+const {
+    getAllLaunchPads,
+} = require("../../models/launchpads.model")
 
-function getAllLaunchpads(req, res) {
-    res.status(200).json(launchpads)
+const httpGetAllLaunchpads = async (req, res) => {
+    // const launchpads = await getAllLaunchPads()
+    // res.status(200).json(launchpads)
+    console.log('httpGetAllLaunchpads')
+    return res.status(500).json({error: 'Endpoint not implemented'})
 }
 
-function getIndividualLaunchpad(req, res) {
+function httpGetIndividualLaunchpad(req, res) {
 }
 
-function postLaunchpads(req, res) {
-
-}
-
-function patchLaunchpads(req, res) {
+function httpPostLaunchpads(req, res) {
 
 }
 
-function deleteLaunchpads(req, res) {
+function httpPatchLaunchpads(req, res) {
+
+}
+
+function httpDeleteLaunchpads(req, res) {
 
 }
 
 module.exports = {
-    getAllLaunchpads,
-    getIndividualLaunchpad,
-    postLaunchpads,
-    patchLaunchpads,
-    deleteLaunchpads,
+    httpGetAllLaunchpads,
+    httpGetIndividualLaunchpad,
+    httpPostLaunchpads,
+    httpPatchLaunchpads,
+    httpDeleteLaunchpads
 }

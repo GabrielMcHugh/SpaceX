@@ -1,12 +1,18 @@
-const express = require('express')
-const { getAllLaunchpads, getIndividualLaunchpad, postLaunchpads, deleteLaunchpads, patchLaunchpads  } = require('./launchpads.controller')
+const express = require("express");
+const {
+  httpGetAllLaunchpads,
+  httpGetIndividualLaunchpad,
+  httpPostLaunchpads,
+  httpDeleteLaunchpads,
+  httpPatchLaunchpads,
+} = require("./launchpads.controller");
 
-const launchpadsRouter = express.Router()
+const launchpadsRouter = express.Router();
 
-launchpadsRouter.get('/', getAllLaunchpads);
-launchpadsRouter.get('/:launchpadId', getIndividualLaunchpad);
-launchpadsRouter.post('/', postLaunchpads);
-launchpadsRouter.delete('/', deleteLaunchpads);
-launchpadsRouter.patch('/', patchLaunchpads)
+launchpadsRouter.get("/", httpGetAllLaunchpads);
+launchpadsRouter.get("/:launchpadId", httpGetIndividualLaunchpad);
+launchpadsRouter.post("/", httpPostLaunchpads);
+launchpadsRouter.delete("/", httpDeleteLaunchpads);
+launchpadsRouter.patch("/", httpPatchLaunchpads);
 
-module.exports = launchpadsRouter
+module.exports = launchpadsRouter;

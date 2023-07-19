@@ -20,7 +20,7 @@ app.use('/launchpads', launchpadsRouter)
 
 app.get('/*', (req, res) => {
     res.render('index', {
-        title: 'Handlebars!',
+        title: 'Launchpads',
     })
 })
 
