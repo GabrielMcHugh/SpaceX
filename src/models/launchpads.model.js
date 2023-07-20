@@ -43,6 +43,7 @@ const getAllLaunchPads = async () => {
 };
 
 module.exports = {
+  saveLaunchpad,
   loadLaunchpads,
   getAllLaunchPads,
 };

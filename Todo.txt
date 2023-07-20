@@ -1,3 +1,22 @@
+App Goal:
+Make a mini app to test setting up one set of endpoints to modify a single list
+1. Load list of launchpads and save them on a mongodb
+2. Allow the user to add a new launchpad entry
+2. Allow the user to delete a launchpad entry
+3. Allow the user to update a launchpad data
+
+Todo:
+[] Setup postgres server
+
+(20/7/23)
+- I need to make the mongodb server locally so I can access into
+- Also maybe I should make it a postgreSQL server. Would be a more valuable databsae to know
+- I also would like to create a App Diagram and a Database Diagram. I've decided I will change it to PostgresSQL instead
+- I've decided against this. PostgresSQL and learning about it seems like a seperate project. 
+Right now I'll keep it simple
+- Setting up mongodb locally following this guide https://zellwk.com/blog/local-mongodb/
+
 (19/7/23)
 - Setting up httpGetAllLaunchpads endpoint
 - Need to setup loadLaunchpads to load Data into Mongo db
+
