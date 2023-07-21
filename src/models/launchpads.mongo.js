@@ -23,4 +23,4 @@ const launchpadsSchema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model("Planet", launchpadsSchema)
+module.exports = mongoose.model("Launchpads", launchpadsSchema)

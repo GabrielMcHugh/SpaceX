@@ -4,10 +4,10 @@ const {
 } = require("../../models/launchpads.model")
 
 const httpGetAllLaunchpads = async (req, res) => {
-    // const launchpads = await getAllLaunchPads()
-    // res.status(200).json(launchpads)
-    console.log('httpGetAllLaunchpads')
-    return res.status(500).json({error: 'Endpoint not implemented'})
+    const launchpads = await getAllLaunchPads()
+    res.status(200).json(launchpads)
+    // console.log('httpGetAllLaunchpads')
+    // return res.status(500).json({error: 'Endpoint not implemented'})
 }
 
 function httpGetIndividualLaunchpad(req, res) {
