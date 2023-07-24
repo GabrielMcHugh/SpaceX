@@ -6,7 +6,24 @@ Make a mini app to test setting up one set of endpoints to modify a single list
 3. Allow the user to update a launchpad data
 
 Todo:
-[] Setup postgres server
+[] Update rendered list with new entry on adding new entry
+[] Add error handling for loadLaunchpad()
+[x] Add error handling for when can't connect to mongoDB
+[x] Add an input which adds a new entry
+[x] Call launchpads list from mongodb and load on handlebars list
+[x] Connect to mongodb server
+
+(24/7/23)
+- I've added the code for saving a launchpad but I need to rerender the list with the
+new launchpad
+- Need error handling for when mongoose can't connect in the connectMongoose and 
+loadLaunchpad functions()
+- Added error handling for connectMongoose. Now just need it for loadLaunchpad()
+
+(21/7/23)
+- At home so I can connect to the mongodb server. Just gonna finish up this project here
+- launchpads are saving on mongodb. Now I want to load them on the page.
+- Have to call them and render them using handlebars
 
 (20/7/23)
 - I need to make the mongodb server locally so I can access into

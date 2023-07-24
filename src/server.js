@@ -9,8 +9,9 @@ const PORT = process.env.PORT || 3100;
 const server = http.createServer(app);
 
 async function startServer() {
-  await connectMongoose();
-  await loadLaunchpads()
+    connectMongoose();
+    // loadLaunchpads()
+  
   server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}...`);
   });

@@ -6,13 +6,21 @@ mongoose.connection.once("open", () => {
   console.log("mongodb connection ready!");
 });
 
-mongoose.connection.on("error", (err) => {
-  console.error(err);
+mongoose.connection.on("disconnected", () => {
+  console.log("Server disconnected from mongoDB");
 });
 
 async function connectMongoose() {
-  await mongoose.connect(MONGO_URL)
+  try {
+    await mongoose.connect(MONGO_URL);
 
+    mongoose.connection.on("error", (err) => {
+      console.error(err);
+    });
+    
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 async function disconnectMongoose() {
