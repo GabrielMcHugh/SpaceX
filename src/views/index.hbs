@@ -14,8 +14,11 @@
     <div class="container">
         <h1>{{title}}</h1>
         <p>Launchpad List</p>
-        <input type="text">
-        <button>Add New Launchpad</button>
+        <form id="form">
+            <input type="text"
+                id="launchpad-input">
+            <button type="button" onclick="addNewLaunchpad()">Add New Launchpad</button>
+        </form>
         <ul id="launchpad-list"></ul>
     </div>
     <script src="/site/scripts/space-x.js"></script>

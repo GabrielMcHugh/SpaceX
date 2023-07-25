@@ -1,9 +1,11 @@
+const URL = 'http://localhost:3100'
+
 // Define an async function to load data and populate the list
 async function getLaunchpads() {
   console.log("Running httpGetLaunchpads")
   try {
     // Make a fetch request to an unspecified API endpoint
-    const response = await fetch("http://localhost:3100/launchpads")
+    const response = await fetch(`${URL}/launchpads`)
     
     // .then((res) => console.log('launchpads: ', res))
     const data = await response.json();
@@ -21,5 +23,30 @@ async function getLaunchpads() {
   }
 }
 
+async function addNewLaunchpad() {
+  const form = document.getElementById('form')
+  const data = new FormData(form)
+  try {
+    const response = await fetch(`${URL}/launchpads`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    return response
+  } catch(err) {
+    console.log(err)
+  }
+}
+
+function ready(fn) {
+  if (document.readyState !== 'loading') {
+    fn();
+    return;
+  }
+  document.addEventListener('DOMContentLoaded', fn);
+}
+
 // Call the async function to load data
-document.onload = getLaunchpads();
+ready(getLaunchpads())

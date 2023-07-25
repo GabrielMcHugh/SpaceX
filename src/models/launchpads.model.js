@@ -35,7 +35,7 @@ async function loadLaunchpads() {
       }
     }
   } catch (error) {
-    console.error(error);
+    console.error('Could not load launchpads due to: ', error);
   }
 }
 

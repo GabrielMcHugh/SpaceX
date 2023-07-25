@@ -10,7 +10,7 @@ const server = http.createServer(app);
 
 async function startServer() {
     connectMongoose();
-    // loadLaunchpads()
+    loadLaunchpads()
   
   server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}...`);
