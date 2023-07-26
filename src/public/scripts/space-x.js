@@ -1,12 +1,12 @@
-const URL = 'http://localhost:3100'
+const URL = "http://localhost:3100";
 
 // Define an async function to load data and populate the list
 async function getLaunchpads() {
-  console.log("Running httpGetLaunchpads")
+  console.log("Running httpGetLaunchpads");
   try {
     // Make a fetch request to an unspecified API endpoint
-    const response = await fetch(`${URL}/launchpads`)
-    
+    const response = await fetch(`${URL}/launchpads`);
+
     // .then((res) => console.log('launchpads: ', res))
     const data = await response.json();
     const dataList = document.getElementById("launchpad-list");
@@ -24,29 +24,37 @@ async function getLaunchpads() {
 }
 
 async function addNewLaunchpad() {
-  const form = document.getElementById('form')
-  const data = new FormData(form)
+  const form = document.getElementById("form");
+  const data = new FormData(form);
+
+  const mission = data.get('mission')
+  const locality = data.get('locality')
+  const region = data.get('region')
+  const launchpad_attempts = data.get('launchpad-attempts')
+  const launchpad_successes = data.get('launchpad-successes')
+  const launchpad = { mission, locality, region, launchpad_attempts, launchpad_successes }
+
   try {
     const response = await fetch(`${URL}/launchpads`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
-    })
-    return response
-  } catch(err) {
-    console.log(err)
+      body: JSON.stringify(launchpad),
+    });
+    return response;
+  } catch (err) {
+    console.log(err);
   }
 }
 
 function ready(fn) {
-  if (document.readyState !== 'loading') {
+  if (document.readyState !== "loading") {
     fn();
     return;
   }
-  document.addEventListener('DOMContentLoaded', fn);
+  document.addEventListener("DOMContentLoaded", fn);
 }
 
 // Call the async function to load data
-ready(getLaunchpads())
+ready(getLaunchpads());

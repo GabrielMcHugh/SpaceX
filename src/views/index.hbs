@@ -15,9 +15,33 @@
         <h1>{{title}}</h1>
         <p>Launchpad List</p>
         <form id="form">
+            <label for="mission">Mission:</label>
             <input type="text"
-                id="launchpad-input">
-            <button type="button" onclick="addNewLaunchpad()">Add New Launchpad</button>
+                id="mission"
+                name="mission">
+
+            <label for="locality">Locality:</label>
+            <input type="text"
+                id="locality"
+                name="locality">
+
+            <label for="region">Region:</label>
+            <input type="text"
+                id="region"
+                name="region">
+
+            <label for="launchpad-attempts">Launchpad Attempts:</label>
+            <input type="text"
+                id="launchpad-attempts"
+                name="launchpad-attempts">
+
+            <label for="launchpad-successes">Launchpad Successes:</label>
+            <input type="text"
+                id="launchpad-successes"
+                name="launchpad-successes">
+
+            <button type="button"
+                onclick="addNewLaunchpad()">Add New Launchpad</button>
         </form>
         <ul id="launchpad-list"></ul>
     </div>
