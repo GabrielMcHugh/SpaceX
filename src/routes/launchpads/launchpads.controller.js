@@ -21,22 +21,22 @@ function httpGetIndividualLaunchpad(req, res) {
 }
 
 const httpAddNewLaunchpads = async (req, res) => {
-    const launchPad = req.body
-    //Check that it has all the required properties
-    if (
-        !launchPad.mission ||
-        !launchPad.locality ||
-        !launchPad.region ||
-        !launchPads.launch_attempts ||
-        !launchPad.launch_successes
-    ) {
-        return res.status(400).json({ error: "Missing fields required"})
-    }
+  const launchPad = req.body;
+  const requiredFields = ["mission", "locality", "region", "launchpad_attempts", "launchpad_successes"];
+  const missingFields = [];
 
-    await saveLaunchpad(launchPad)
-    return res.status(201).json(launchPad)
-    
-}
+  for (const field of requiredFields) {
+    if (!launchPad[field]) {
+      missingFields.push(field);
+    }
+  }
+
+  if (missingFields.length > 0) {
+    return res.status(400).json({ error: `Missing fields: ${missingFields.join(", ")}` });
+  }
+
+  return await saveLaunchpad(launchPad, res);
+};
 
 function httpPatchLaunchpads(req, res) {
 

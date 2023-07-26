@@ -13,11 +13,11 @@ const launchpadsSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    launch_attempts: {
+    launchpad_attempts: {
         type: Number,
         required: true,
     },
-    launch_successes: {
+    launchpad_successes: {
         type: Number,
         required: true,
     },
