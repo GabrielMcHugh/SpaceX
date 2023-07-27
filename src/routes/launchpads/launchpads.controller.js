@@ -2,6 +2,7 @@ const {
     getAllLaunchPads,
     saveLaunchpad
 } = require("../../models/launchpads.model")
+const launchpadFields = require("../../models/launchpads.enum")
 
 const httpGetAllLaunchpads = async (req, res) => {
     try {
@@ -22,10 +23,10 @@ function httpGetIndividualLaunchpad(req, res) {
 
 const httpAddNewLaunchpads = async (req, res) => {
   const launchPad = req.body;
-  const requiredFields = ["mission", "locality", "region", "launchpad_attempts", "launchpad_successes"];
+  const requiredFields = launchpadFields;
   const missingFields = [];
 
-  for (const field of requiredFields) {
+  for (const field in requiredFields) {
     if (!launchPad[field]) {
       missingFields.push(field);
     }

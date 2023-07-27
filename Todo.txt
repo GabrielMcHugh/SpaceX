@@ -6,13 +6,21 @@ Make a mini app to test setting up one set of endpoints to modify a single list
 3. Allow the user to update a launchpad data
 
 Todo:
-[] Create more inputs for the form so that it posts data with the required fields
-[] Update rendered list with new entry on adding new entry
+[] Update rendered list with new entry on adding new entry on success response
+[] Create a distribution folder and serve from it
+[x] Create more inputs for the form so that it posts data with the required fields
 [x] Add error handling for loadLaunchpad()
 [x] Add error handling for when can't connect to mongoDB
 [x] Add an input which adds a new entry
 [x] Call launchpads list from mongodb and load on handlebars list
 [x] Connect to mongodb server
+
+(26/7/23)
+- httpAddNewLaunchpads now prints out missing fields in POST request 
+and saveLaunchpad now has an error handler
+- Added rest of the inputs for launchpad properties and now it properly POSTs
+- Need to update the front end with additional entry on rendered list when a
+success response is returned
 
 (25/7/23)
 - Added httpAddNewLaunchPads http request to front end along with form and button
