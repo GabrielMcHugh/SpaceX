@@ -12,13 +12,10 @@ const httpGetAllLaunchpads = async (req, res) => {
         console.log(err)
         res.status(500).json({error: 'Launchpads not found'})
     }
-    
-    
-    // console.log('httpGetAllLaunchpads')
-    // return res.status(500).json({error: 'Endpoint not implemented'})
 }
 
 function httpGetIndividualLaunchpad(req, res) {
+    
 }
 
 const httpAddNewLaunchpads = async (req, res) => {

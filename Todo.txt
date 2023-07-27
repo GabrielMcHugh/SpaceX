@@ -5,15 +5,32 @@ Make a mini app to test setting up one set of endpoints to modify a single list
 2. Allow the user to delete a launchpad entry
 3. Allow the user to update a launchpad data
 
+Todo next project:
+1. Use Typescript
+2. Setup testing at the start
+3. Add authentication
+4. Have a front end with angular
+5. Have a distribution folder
+
+
 Todo:
-[] Update rendered list with new entry on adding new entry on success response
+[] Fill out the other endpoints
 [] Create a distribution folder and serve from it
+[x] Update rendered list with new entry on adding new entry on success response
 [x] Create more inputs for the form so that it posts data with the required fields
 [x] Add error handling for loadLaunchpad()
 [x] Add error handling for when can't connect to mongoDB
 [x] Add an input which adds a new entry
 [x] Call launchpads list from mongodb and load on handlebars list
 [x] Connect to mongodb server
+
+(27/7/23)
+- Refactored spaceX script: Added name input and now that launchpad name will be 
+added to list ifa success response is returned
+- Refactored missing fields list into "enum". Theres no TS so will need to try do express
+with TS next time
+- What I want from a distribution file is for the files to be minified and 
+uglified before being sent
 
 (26/7/23)
 - httpAddNewLaunchpads now prints out missing fields in POST request 

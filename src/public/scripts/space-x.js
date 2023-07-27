@@ -3,7 +3,6 @@ let launchpadList;
 
 // Define an async function to load data and populate the list
 async function getLaunchpads() {
-  console.log("Running httpGetLaunchpads");
   try {
     // Make a fetch request to an unspecified API endpoint
     const response = await fetch(`${URL}/launchpads`);
@@ -53,7 +52,7 @@ async function addNewLaunchpad() {
     });
 
     if (response.status === 200) {
-      addLaunchpad(launchpadList, );
+      addLaunchpad(launchpadList, name);
     }
 
     return response;

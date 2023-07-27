@@ -1,5 +1,5 @@
 
-  const requiredFields = {
+  module.exports  = requiredFields = {
     name: "name", 
     mission: "mission", 
     locality: "locality", 
