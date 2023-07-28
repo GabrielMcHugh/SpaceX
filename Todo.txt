@@ -32,6 +32,8 @@ pseudo-classes (input:invalid). Additionally you have to have some kind of JS to
 with when its been changed.
 -Tbh I might just drop this and move on. I'm almost done with this project and I 
 want to get to the next thing
+- attempting to use handlebars in a front end script. It doesn't work and isn't what handle 
+bars is meant for
 
 (27/7/23)
 - Refactored spaceX script: Added name input and now that launchpad name will be 
