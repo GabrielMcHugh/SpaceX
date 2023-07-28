@@ -102,6 +102,26 @@ input {
   padding: 5px;
 }
 
+/* normal */
+form input {
+  border: 1px solid black;
+}
+
+/* normal */
+form input:not(:focus):invalid {
+  border: 1px solid black;
+}
+
+/* normal */
+form input:focus:invalid {
+  border: 1px solid black !important;
+}
+
+/* error */
+form input.error-input:invalid {
+  border: 1px solid red;
+}
+
 button {
   margin-top: 10px;
 }

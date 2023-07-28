@@ -18,39 +18,46 @@
             <label for="name">Name:</label>
             <input type="text"
                 id="name"
+                required
                 name="name">
 
             <label for="mission">Mission:</label>
             <input type="text"
                 id="mission"
+                required
                 name="mission">
 
             <label for="locality">Locality:</label>
             <input type="text"
                 id="locality"
+                required
                 name="locality">
 
             <label for="region">Region:</label>
             <input type="text"
                 id="region"
+                required
                 name="region">
 
             <label for="launchpad-attempts">Launchpad Attempts:</label>
             <input type="text"
                 id="launchpad-attempts"
+                required
                 name="launchpad-attempts">
 
             <label for="launchpad-successes">Launchpad Successes:</label>
             <input type="text"
                 id="launchpad-successes"
+                required
                 name="launchpad-successes">
 
-            <button type="button"
+            <button
                 onclick="addNewLaunchpad()">Add New Launchpad</button>
         </form>
         <ul id="launchpad-list"></ul>
     </div>
     <script src="/site/scripts/space-x.js"></script>
+    <script src="/site/scripts/form-validation.js"></script>
 </body>
 
 </html>
