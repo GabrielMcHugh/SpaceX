@@ -1,5 +1,5 @@
 const URL = "http://localhost:3100";
-let launchpadList;
+let launchpadList = []; //An array containing the names of launchpads fields to be rendered
 
 // Define an async function to load data and populate the list
 async function getLaunchpads() {
@@ -51,9 +51,10 @@ async function addNewLaunchpad() {
       body: JSON.stringify(launchpad),
     });
 
-    if (response.status === 200) {
-      addLaunchpad(launchpadList, name);
-    }
+    // if (response.status === 200) {
+    launchpadList.push(name);
+    updateLaunchpadListHTML(launchpadList);
+    // }
 
     return response;
   } catch (err) {
@@ -62,20 +63,24 @@ async function addNewLaunchpad() {
 }
 
 /**
- * Appends a list element to an unorder list
- * @param {*} list: HTML unordered list element containing launchpads
- * @param {*} launchpadName : Name of the launchpad
+ * Compiles the launchpad list template and replaces it on the view
+ * @param {*} list: An array of launchpad names
  */
-function addLaunchpad(list, launchpadName) {
-  const li = document.createElement("li");
-  li.textContent = launchpadName;
-  list.appendChild(li);
+function updateLaunchpadListHTML(list) {
+  console.log("updateLaunchListHTML", list);
+  const launchpadData = { list };
+  const template = Handlebars.compile(
+    document.getElementById("launchpad-template").innerHTML
+  );
+  const launchpadListHTML = template(launchpadData);
+
+  console.log('listHTML', launchpadListHTML)
+  document.getElementById("launchpad-list").innerHTML = launchpadListHTML;
 }
 
 function ready() {
   function onReady() {
     getLaunchpads();
-    launchpadList = document.getElementById("launchpad-list");
   }
   if (document.readyState !== "loading") {
     onReady();

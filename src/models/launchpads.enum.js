@@ -4,6 +4,6 @@
     mission: "mission", 
     locality: "locality", 
     region: "region", 
-    launchpadAttempts: "launchpad_attempts", 
-    launchpadSuccesses: "launchpad_successes"
+    launchpad_attempts: "launchpad_attempts", 
+    launchpad_successes: "launchpad_successes"
   }

@@ -16,6 +16,7 @@ Todo next project:
 Todo:
 [] Fill out the other endpoints
 [] Create a distribution folder and serve from it
+[] Add client side form validation
 [x] Update rendered list with new entry on adding new entry on success response
 [x] Create more inputs for the form so that it posts data with the required fields
 [x] Add error handling for loadLaunchpad()
@@ -23,6 +24,14 @@ Todo:
 [x] Add an input which adds a new entry
 [x] Call launchpads list from mongodb and load on handlebars list
 [x] Connect to mongodb server
+
+(28/7/23)
+- Adding client side form validation. Looking up solutions online and it looks like
+theres no easy way to do it. You have to have multiple css classes for the input
+pseudo-classes (input:invalid). Additionally you have to have some kind of JS to deal 
+with when its been changed.
+-Tbh I might just drop this and move on. I'm almost done with this project and I 
+want to get to the next thing
 
 (27/7/23)
 - Refactored spaceX script: Added name input and now that launchpad name will be 

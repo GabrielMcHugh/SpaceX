@@ -51,11 +51,24 @@
                 required
                 name="launchpad-successes">
 
-            <button
+            <button type="button"
                 onclick="addNewLaunchpad()">Add New Launchpad</button>
         </form>
-        <ul id="launchpad-list"></ul>
+        <ul id="launchpad-list">
+            {{#each launchpadList}}
+            <li>{{this}}</li>
+            <button type="button">Delete Launchpad</button>
+            {{/each}}
+        </ul>
     </div>
+    <script id="launchpad-template"
+        type="text/x-handlebars-template">
+        {{#each launchpadList}}
+            <li>{{this}}</li>
+            <button type="button">Delete Launchpad</button>
+        {{/each}}
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.7/dist/handlebars.min.js"></script>
     <script src="/site/scripts/space-x.js"></script>
     <script src="/site/scripts/form-validation.js"></script>
 </body>
