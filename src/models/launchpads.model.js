@@ -2,6 +2,14 @@ const axios = require("axios");
 
 const LaunchpadsModel = require("./launchpads.mongo");
 
+const existsLaunchpadWithId = async (req, res) => {
+
+}
+
+const deleteLaunchpad = async (req, res) => {
+  
+}
+
 const saveLaunchpad = async (launchpad, res) => {
   try {
     await LaunchpadsModel.findOneAndUpdate(
@@ -49,6 +57,7 @@ const getAllLaunchPads = async () => {
 };
 
 module.exports = {
+  existsLaunchpadWithId,
   saveLaunchpad,
   loadLaunchpads,
   getAllLaunchPads,

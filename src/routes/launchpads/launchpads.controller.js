@@ -1,4 +1,6 @@
 const {
+    deleteLaunchpad,
+    existsLaunchpadWithId,
     getAllLaunchPads,
     saveLaunchpad
 } = require("../../models/launchpads.model")
@@ -41,11 +43,19 @@ function httpPatchLaunchpads(req, res) {
 
 }
 
-function httpDeleteLaunchpads(req, res) {
+const httpDeleteLaunchpads = async (req, res) => {
   try {
     const launchpadId = req.params.launchpadId
-    console.log(launchpadId)
-    return res.status(200).json({ id: launchpadId})
+    const existsLaunchpad = await existsLaunchpadWithId(launchpadId)
+    if (!existsLaunchpad) {
+      return res.status(400).json({error: "Invalid launchpad ID"})
+    }
+    const isLaunchpadDeleted = await deleteLaunchpad(launchpadId);
+    if (isLaunchpadDeleted) {
+      return res.status(200).json({ ok: true })
+    } else {
+      return res.status(200).json({ ok: false })
+    }
   } catch (err) {
     return res.status(500).json({error: "An error has occured"})
   }
