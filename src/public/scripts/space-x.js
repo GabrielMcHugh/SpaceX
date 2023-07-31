@@ -68,21 +68,36 @@ async function addNewLaunchpad() {
  */
 function addLaunchpad(list, launchpadName) {
   const li = document.createElement("li");
-  li.textContent = launchpadName;
 
+  // Create a span to wrap the launchpad name
+  const launchpadSpan = document.createElement("span");
+  launchpadSpan.textContent = launchpadName;
+
+  // Create the delete button element
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
   deleteButton.addEventListener("click", function () {
+    deleteLaunchpad(launchpadSpan.textContent)
     list.removeChild(li); // This removes the list item when the delete button is clicked
   });
 
+  // Append the launchpad name and delete button to the list item
+  li.appendChild(launchpadSpan);
   li.appendChild(deleteButton);
+  
+  // Append the list item to the unordered list
   list.appendChild(li);
 }
 
+/**
+ * Deletes a launchpad form the list
+ * 
+ * @param {*} name: name of the launchpad that is to be deleted
+ * @returns response
+ */
 async function deleteLaunchpad(name) {
   try {
-    const response = await fetch(`${URL}/launchpads/test`, {
+    const response = await fetch(`${URL}/launchpads/${name}`, {
       method: "delete"
     })
     return response
@@ -109,8 +124,9 @@ function addDummyLaunchpads(list) {
 
 function ready() {
   function onReady() {
-    getLaunchpads();
     launchpadList = document.getElementById("launchpad-list");
+
+    getLaunchpads();
     addDummyLaunchpads(launchpadList)
   }
   if (document.readyState !== "loading") {
