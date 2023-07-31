@@ -10,9 +10,9 @@ const {
 const launchpadsRouter = express.Router();
 
 launchpadsRouter.get("/", httpGetAllLaunchpads);
-launchpadsRouter.get("/:launchpadId", httpGetIndividualLaunchpad);
+// launchpadsRouter.get("/:launchpadId", httpGetIndividualLaunchpad);
 launchpadsRouter.post("/", httpAddNewLaunchpads);
-launchpadsRouter.delete("/", httpDeleteLaunchpads);
+launchpadsRouter.delete("/:launchpadId", httpDeleteLaunchpads);
 launchpadsRouter.patch("/", httpPatchLaunchpads);
 
 module.exports = launchpadsRouter;

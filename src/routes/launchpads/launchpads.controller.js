@@ -38,10 +38,17 @@ const httpAddNewLaunchpads = async (req, res) => {
 
 function httpPatchLaunchpads(req, res) {
 
+
 }
 
 function httpDeleteLaunchpads(req, res) {
-
+  try {
+    const launchpadId = req.params.launchpadId
+    console.log(launchpadId)
+    return res.status(200).json({ id: launchpadId})
+  } catch (err) {
+    return res.status(500).json({error: "An error has occured"})
+  }
 }
 
 module.exports = {

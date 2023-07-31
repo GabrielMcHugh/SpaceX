@@ -122,6 +122,14 @@ form input.error-input:invalid {
   border: 1px solid red;
 }
 
+/* Add space between delete button and text in the list item */
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
 button {
-  margin-top: 10px;
+  margin-left: 10px;
 }

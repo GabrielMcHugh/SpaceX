@@ -69,13 +69,49 @@ async function addNewLaunchpad() {
 function addLaunchpad(list, launchpadName) {
   const li = document.createElement("li");
   li.textContent = launchpadName;
+
+  const deleteButton = document.createElement("button");
+  deleteButton.textContent = "Delete";
+  deleteButton.addEventListener("click", function () {
+    list.removeChild(li); // This removes the list item when the delete button is clicked
+  });
+
+  li.appendChild(deleteButton);
   list.appendChild(li);
+}
+
+async function deleteLaunchpad(name) {
+  try {
+    const response = await fetch(`${URL}/launchpads/test`, {
+      method: "delete"
+    })
+    return response
+  } catch (err) {
+    return {
+      ok: false
+    }
+  }
+
+}
+
+/**
+ * Populates the launchpad list with some test data
+ * 
+ * @param {*} list: HTML unordered list element containing launchpads
+ */
+function addDummyLaunchpads(list) {
+  const launchpads = ["Georgia", "Flint Michigan"]
+
+  launchpads.forEach((x) => {
+    addLaunchpad(list, x)
+  })
 }
 
 function ready() {
   function onReady() {
     getLaunchpads();
     launchpadList = document.getElementById("launchpad-list");
+    addDummyLaunchpads(launchpadList)
   }
   if (document.readyState !== "loading") {
     onReady();
