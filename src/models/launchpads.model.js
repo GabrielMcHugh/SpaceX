@@ -2,12 +2,20 @@ const axios = require("axios");
 
 const LaunchpadsModel = require("./launchpads.mongo");
 
-const existsLaunchpadWithId = async (req, res) => {
+//Returns boolean whether launchpad exists in db
+const existsLaunchpadWithId = async (launchpadId) => {
+  try {
+    let response = await LaunchpadsModel.findById(launchpadId);
+    return !!response ? true : false;
+  } catch (err) {
+    console.log(`Could not find launchpad with that ID due to: ${err}`)
+    return false
+  }
 
 }
 
 const deleteLaunchpad = async (req, res) => {
-  
+
 }
 
 const saveLaunchpad = async (launchpad, res) => {
@@ -58,6 +66,7 @@ const getAllLaunchPads = async () => {
 
 module.exports = {
   existsLaunchpadWithId,
+  deleteLaunchpad,
   saveLaunchpad,
   loadLaunchpads,
   getAllLaunchPads,

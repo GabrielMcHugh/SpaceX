@@ -14,9 +14,8 @@ Todo next project:
 
 
 Todo:
+[] Fill out existsLaunchpadWithId, deleteLaunchpad in model file
 [] Fill out the other endpoints
-[] Create a distribution folder and serve from it
-[] Add client side form validation
 [x] Update rendered list with new entry on adding new entry on success response
 [x] Create more inputs for the form so that it posts data with the required fields
 [x] Add error handling for loadLaunchpad()
@@ -24,6 +23,16 @@ Todo:
 [x] Add an input which adds a new entry
 [x] Call launchpads list from mongodb and load on handlebars list
 [x] Connect to mongodb server
+
+(9/8/23)
+- Added existsLaunchpadWithId and made deletion on list dependant on success
+response
+
+(31/7/23)
+- I'm just going to focus on filling out the remaining endpoints and move to the next app
+- Added delete buttons for each launchpad list entry and added some test data onload
+- separated textcontent of list element into button and span
+- added controller function for Delete Launchpad Request
 
 (28/7/23)
 - Adding client side form validation. Looking up solutions online and it looks like

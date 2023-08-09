@@ -77,49 +77,50 @@ function addLaunchpad(list, launchpadName) {
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
   deleteButton.addEventListener("click", function () {
-    deleteLaunchpad(launchpadSpan.textContent)
-    list.removeChild(li); // This removes the list item when the delete button is clicked
+    let deleteRes = deleteLaunchpad(launchpadSpan.textContent);
+    if (deleteRes.ok) {
+      list.removeChild(li); // This removes the list item when the delete button is clicked
+    }
   });
 
   // Append the launchpad name and delete button to the list item
   li.appendChild(launchpadSpan);
   li.appendChild(deleteButton);
-  
+
   // Append the list item to the unordered list
   list.appendChild(li);
 }
 
 /**
  * Deletes a launchpad form the list
- * 
+ *
  * @param {*} name: name of the launchpad that is to be deleted
  * @returns response
  */
 async function deleteLaunchpad(name) {
   try {
     const response = await fetch(`${URL}/launchpads/${name}`, {
-      method: "delete"
-    })
-    return response
+      method: "delete",
+    });
+    return response;
   } catch (err) {
     return {
-      ok: false
-    }
+      ok: false,
+    };
   }
-
 }
 
 /**
  * Populates the launchpad list with some test data
- * 
+ *
  * @param {*} list: HTML unordered list element containing launchpads
  */
 function addDummyLaunchpads(list) {
-  const launchpads = ["Georgia", "Flint Michigan"]
+  const launchpads = ["Georgia", "Flint Michigan"];
 
   launchpads.forEach((x) => {
-    addLaunchpad(list, x)
-  })
+    addLaunchpad(list, x);
+  });
 }
 
 function ready() {
@@ -127,7 +128,7 @@ function ready() {
     launchpadList = document.getElementById("launchpad-list");
 
     getLaunchpads();
-    addDummyLaunchpads(launchpadList)
+    addDummyLaunchpads(launchpadList);
   }
   if (document.readyState !== "loading") {
     onReady();
